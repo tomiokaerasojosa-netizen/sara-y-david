@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sara ✦ David</title>
+<style>
+:root{--pink:#ff8fc7;--violet:#b9a0ff;--ink:#090817}
+*{box-sizing:border-box}
+body{margin:0;color:#fff;font-family:Georgia,'Times New Roman',serif;background:radial-gradient(ellipse at 20% 10%,#30204e 0,transparent 38%),radial-gradient(ellipse at 85% 35%,#321b42 0,transparent 34%),#090817;min-height:100vh;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;background-image:radial-gradient(2px 2px at 20px 30px,#fff,transparent),radial-gradient(1px 1px at 90px 80px,#ffd7f0,transparent),radial-gradient(2px 2px at 160px 140px,#c9c0ff,transparent),radial-gradient(1px 1px at 230px 40px,#fff,transparent);background-size:270px 190px;opacity:.7;animation:twinkle 5s ease-in-out infinite alternate}
+@keyframes twinkle{to{opacity:.25}}
+main{width:min(900px,92%);margin:auto;padding:44px 0 70px}
+.hero{text-align:center;padding:55px 12px 35px}
+.eyebrow{letter-spacing:.25em;text-transform:uppercase;color:#d8c9ff;font:12px Arial,sans-serif}
+h1{font-size:clamp(42px,9vw,76px);margin:15px 0;color:#fff;text-shadow:0 0 25px #cf77ff}
+h1 span{color:var(--pink)}
+.subtitle{color:#e5dff5;font-size:18px;line-height:1.6}
+.glow{color:var(--pink);text-shadow:0 0 18px #ff5fb8}
+.card{background:#ffffff0b;border:1px solid #ffffff24;border-radius:22px;padding:25px;margin:18px 0;backdrop-filter:blur(8px);box-shadow:0 10px 40px #0003}
+h2{font-size:25px;margin:0 0 15px;color:#ffd0e9}
+p{line-height:1.75;color:#eee8f7}
+button{border:0;border-radius:999px;padding:13px 20px;background:linear-gradient(100deg,#ff8fc7,#b9a0ff);color:#21132c;font-weight:bold;font-size:15px;cursor:pointer}
+.center{text-align:center}
+.hidden{display:none}
+.gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.photo{min-height:150px;border:1px dashed #b9a0ff88;border-radius:15px;display:grid;place-items:center;text-align:center;padding:12px;color:#e8dfff;background:#ffffff08}
+.photo img{width:100%;height:190px;object-fit:cover;border-radius:12px}
+.small{font:12px Arial,sans-serif;color:#c9bfdc}
+#counter{font:clamp(20px,5vw,30px) Arial,sans-serif;color:#ffd0e9;text-align:center;line-height:1.7}
+.love-list{columns:2;column-gap:28px;padding-left:22px}
+.love-list li{break-inside:avoid;margin:0 0 9px;color:#f1eaf8}
+footer{text-align:center;color:#c9bfdc;padding:28px 0}
+@media(max-width:520px){.gallery{grid-template-columns:1fr}.love-list{columns:1}.card{padding:20px}}
+</style>
+</head>
+<body>
+<main>
+<section class="hero">
+  <div class="eyebrow">una pequeña sorpresa para ti</div>
+  <h1>Sara <span>✦</span> David</h1>
+  <p class="subtitle">Bajo el mismo cielo, mi lugar favorito<br>siempre será a tu lado. <span class="glow">♡</span></p>
+  <button onclick="document.getElementById('carta').scrollIntoView({behavior:'smooth'})">Abrir nuestra historia ✨</button>
+</section>
+
+<section class="card" id="carta">
+  <h2>💌 Una carta para ti</h2>
+  <p>Mi David:</p>
+  <p>Quería regalarte algo que pudieras abrir cuando quisieras recordar lo mucho que te quiero. Gracias por los momentos bonitos, por tus palabras y por formar parte de mi vida. Ojalá nos queden muchísimas risas, recuerdos y abrazos por compartir.</p>
+  <p>Si pudiera pedir un deseo bajo todas estas estrellas, pediría seguir creando recuerdos contigo. No olvides nunca lo especial que eres para mí.</p>
+  <p class="glow">Con todo mi amor, Sara. ❤️</p>
+</section>
+
+<section class="card">
+  <h2>🌙 Nuestros recuerdos</h2>
+  <p class="small">Para añadir sus fotos: reemplaza cada recuadro por una foto usando el pequeño ejemplo indicado en las instrucciones.</p>
+  <div class="gallery">
+    <div class="photo">📷<br>Una foto de ustedes</div>
+    <div class="photo">🌟<br>Un recuerdo favorito</div>
+  </div>
+</section>
+
+<section class="card">
+  <h2>⏳ Nuestro tiempo juntos</h2>
+  <p class="center">Cada día contigo es un recuerdo más.</p>
+  <div id="counter">Pon aquí la fecha en que comenzaron 💗</div>
+  <p class="small center">La fecha se configura en la línea START_DATE del código.</p>
+</section>
+
+<section class="card center">
+  <h2>🎁 Una sorpresa para ti</h2>
+  <p>Hay algo que quiero que recuerdes siempre…</p>
+  <button onclick="document.getElementById('surprise').classList.toggle('hidden')">Toca aquí, mi amor 💗</button>
+  <p id="surprise" class="hidden glow">Te elegiría en esta vida y en mil estrellas más. Te amo, David. ✨❤️</p>
+</section>
+
+<section class="card">
+  <h2>🌎 Te amo en muchos idiomas</h2>
+  <p>Elige uno al azar cuando quieras una pequeña dosis de amor.</p>
+  <div class="center"><p id="phrase" class="glow">Te amo ❤️</p><button onclick="newPhrase()">Otro idioma 💫</button></div>
+  <ol class="love-list" id="loveList"></ol>
+</section>
+
+<section class="card">
+  <h2>🎶 Nuestra canción</h2>
+  <p>Pega aquí un enlace a una canción que ambos puedan escuchar. Por ejemplo, puedes añadir un enlace de YouTube o Spotify.</p>
+  <div class="center"><a href="https://www.youtube.com/" target="_blank" rel="noopener" style="color:#ffd0e9">Abrir nuestra canción ♫</a></div>
+  <p class="small">La música no empieza automáticamente; así tu novio puede decidir cuándo reproducirla.</p>
+</section>
+<footer>Hecho con amor por Sara, para David ✦</footer>
+</main>
+<script>
+// CAMBIA esta fecha por la fecha en que comenzaron: AAAA-MM-DD
+const START_DATE = "2025-01-01";
+const phrases = [
+"Te amo ❤️","I love you 💗","Je t’aime 💋","Ti amo 💘","Eu te amo 💞",
+"Ich liebe dich 💕","愛してる 💖","사랑해 💝","我爱你 ❤️","Я тебя люблю 💗",
+"Seni seviyorum 💋","أحبك 💕","Σ' αγαπώ 💘","Ik hou van jou 💞","Jag älskar dig ❤️",
+"Jeg elsker deg 💗","Kocham cię 💋","Miluji tě 💖","Te iubesc 💘","Szeretlek 💞",
+"ฉันรักคุณ 💗","Tôi yêu bạn ❤️","Aku cinta kamu 💕","Mahal kita 💖","Rakastan sinua 💗",
+"Ég elska þig 💞","Volim te ❤️","Обичам те 💖","Я тебе кохаю 💘","Aš tave myliu 💕",
+"Es tevi mīlu ❤️","Ma armastan sind 💖","Tá grá agam duit 💞","Nakupenda ❤️","Ek is lief vir jou 💋",
+"Би чамд хайртай 💞","আমি তোমাকে ভালোবাসি 💕","دوستت دارم 💖","Të dua ❤️","Te amo muito 💗",
+"T’estimo 💋","Quérote ❤️","Maite zaitut 💞","Rohayhu 💗","Mwen renmen ou 💕",
+"Tiako ianao ❤️","Waan ku jeclahay 💗","Mən səni sevirəm 💘","Men seni sevaman 💞","Amo-te ❤️",
+"Ik hou van je 💗","Je t’adore 💘","I adore you 💖","Ti voglio bene 💞","Eu te adoro ❤️",
+"大好きだよ 💕","愛しています 💖","Люблю тебя ❤️","Seni çok seviyorum 💗","Te iubesc mult 💘",
+"Ke a go rata 💕","Kea u rata ❤️","Ou te alofa ia te oe 💗","Aroha ahau ki a koe 💞",
+"אני אוהב אותך 💖","მიყვარხარ ❤️","Ես քեզ սիրում եմ 💗","Ech hunn dech gär 💕",
+"Men seni sevaman ❤️","Saya cinta padamu 💞","Nimitztlazohtla 💖","Kuyayki 💗",
+"Jeg elsker dig ❤️","Ik zie je graag 💕","Mi amas vin 💖","T'estimo molt 💗",
+"אני אוהבת אותך 💕","愛してます ❤️","Te quiero 💘","Te quiero muchísimo 💗",
+"Mi luv yuh 💋","Ke a go rata ❤️","Nakupenda sana 💞","Aš tave myliu labai 💗",
+"Volim te puno ❤️","Обичам те много 💕","Szeretlek nagyon 💖","Miluji tě moc 💘",
+"Te iubesc enorm ❤️","Je t’aime de tout mon cœur 💗","I love you forever 💍",
+"You mean the world to me 🌎","My heart is yours ❤️","Siempre tú 💞",
+"Mi persona favorita 💗","Eres mi lugar seguro 🫶","Mi cielo ✨","Mi amor bonito 💖"
+];
+let idx=0;
+function newPhrase(){idx=(idx+1)%phrases.length;document.getElementById('phrase').textContent=phrases[idx]}
+document.getElementById('loveList').innerHTML=phrases.map(x=>`<li>${x.replace(/&/g,'&amp;').replace(/</g,'&lt;')}</li>`).join('');
+function updateCounter(){
+ const out=document.getElementById('counter');
+ const start=new Date(START_DATE+'T00:00:00');
+ if(START_DATE==='2025-01-01'){out.textContent='Cambia la fecha en el código 💗';return}
+ const now=new Date();let days=Math.floor((new Date(now.getFullYear(),now.getMonth(),now.getDate())-start)/86400000);
+ if(Number.isNaN(days)||days<0){out.textContent='Revisa la fecha que escribiste 💗';return}
+ const years=Math.floor(days/365);days%=365;const months=Math.floor(days/30);days%=30;
+ out.textContent=(years?years+' años, ':'')+(months?months+' meses y ':'')+days+' días juntos ❤️';
+}
+updateCounter();
+</script>
+</body>
+</html>
